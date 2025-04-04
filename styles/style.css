@@ -1,8 +1,39 @@
 * {
   margin: 0;
+  padding: 0;
 }
 
 header {
+  display: flex;
+  align-items: center;
   height: 150px;
   background-color: #6ea1e4;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*  Site Logo */
+nav > a:first-child {
+  display: flex;
+  outline: 4px solid black;
+  border-radius: 15px;
+  background: radial-gradient(#63dd67 0%, #0b9910 55%, #306c32 100%);
+  justify-content: center;
+  align-self: center;
+  width: 120px;
+  height: 120px;
+}
+
+nav > a:first-child > {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+nav > div:last-child {
 }
