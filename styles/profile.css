@@ -53,27 +53,27 @@ main > div {
   width: 100%;
   border: 3px solid black;
   display: flex;
-}
-
-#banner > div:first-child {
-  outline: 2px solid black;
-  height: 100%;
-  width: 100%;
   background-color: #619daf;
 }
 
-#banner > div:first-child > div:first-child {
+#profile {
+  outline: 2px solid black;
+  height: 100%;
+  width: 240px;
+}
+
+#profile > div:first-child {
   height: 100%;
   width: calc(100% - 36px);
   display: flex;
   align-items: center;
-  background: radial-gradient(#29414966 0%, #619daf66 100%);
+  background: radial-gradient(#29414966 0%, #619daf99 100%);
 
   padding-left: 18px;
   padding-right: 18px;
 }
 
-#banner > div:first-child > div:first-child > div:first-child {
+#pfp {
   width: 204px;
   aspect-ratio: 1;
   outline: 2px solid black;
@@ -81,11 +81,14 @@ main > div {
   background-color: #d7fcff;
 }
 
-#banner
-  > div:first-child
-  > div:first-child
-  > div:first-child
-  > img:first-child {
+#pfp > img:first-child {
   width: 100%;
   aspect-ratio: 1;
+}
+
+#info {
+}
+
+#playerRank {
+  outline: 1px solid black;
 }
