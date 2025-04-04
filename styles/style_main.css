@@ -48,6 +48,7 @@ main {
   border: 3px solid #23c6d1;
   border-radius: 5px;
   background-color: #d9d9d9;
+  overflow: hidden;
 }
 
 #chat > button:first-child {
