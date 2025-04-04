@@ -36,3 +36,13 @@ main {
 #games > button:last-child {
   background: linear-gradient(#da2946 0%, #dddd1c 45%, #ca7717 100%);
 }
+
+footer {
+  width: fit-content;
+  position: fixed;
+  bottom: 0;
+}
+
+aside {
+  width: fit-content;
+}
