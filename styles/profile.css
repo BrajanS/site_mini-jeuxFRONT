@@ -87,8 +87,58 @@ main > div {
 }
 
 #info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#info > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  height: 100%;
+}
+#playerLevel {
+  padding: 20px;
+  width: 100%;
+}
+
+/* Exp Bar */
+#playerLevel > div {
+  background-color: #215263;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+}
+
+#lvl {
+  background-color: greenyellow;
+  width: 120px; /* Amount of EXP has to be variable through JAVA Script */
+  height: calc(100% - 4px);
+  border-radius: 15px;
 }
 
 #playerRank {
-  outline: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid black;
+  width: 30%;
+  height: 100%;
+}
+
+#playerRank > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+#playerRank > div > img {
+  width: 100%;
+  aspect-ratio: 1;
 }
