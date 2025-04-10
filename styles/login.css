@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  font-family: "Aleo";
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(#eba21a 0%, #c4d06a 63%, #2c8d66 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background-color: white;
+  width: 650px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
