@@ -1,19 +1,110 @@
 * {
   margin: 0;
-  font-family: "Aleo";
+  font-family: "Aleo", sans-serif;
 }
 
 body {
   height: 100vh;
-  background: radial-gradient(#eba21a 0%, #c4d06a 63%, #2c8d66 100%);
+  background-size: 100% 110%;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#loginBody {
+  background: radial-gradient(#eba21a 0%, #c4d06a 45%, #2c8d66 100%);
+}
+
+#registerBody {
+  background: radial-gradient(#7d4132 41%, #9a2f73 74%, #432626 100%);
+}
+
 main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+main > div:first-child {
   background-color: white;
-  width: 650px;
+  width: 500px;
+  padding-left: 75px;
+  padding-right: 75px;
+  padding-bottom: 68px;
+  padding-top: 20px;
   border: 1px solid black;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 64px;
+}
+
+label {
+  font-size: 48px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+input {
+  width: calc(100% - 20px);
+  height: 80px;
+  border-radius: 10px;
+  padding-left: 20px;
+  display: flex;
+}
+
+input[type="text"] {
+  font-size: 32px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+form > div:not(#register) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#register {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 32px;
+}
+
+#register > span {
+  font-style: italic;
+}
+
+#register > a {
+  color: #ed4242;
+  font-weight: bold;
+}
+
+main > button {
+  font-size: 48px;
+  background-color: white;
+  border-radius: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  cursor: pointer;
 }

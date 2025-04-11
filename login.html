@@ -9,13 +9,36 @@
     </style>
     <title>Login</title>
   </head>
-  <body>
+  <body id="loginBody">
     <main>
-      <h1>Login</h1>
-      <form action="/submit" method="post">
-        <label for="">Pseudonyme :</label>
-        <input type="text" name="" id="" />
-      </form>
+      <div>
+        <h1>Login</h1>
+        <form id="loginForm" action="/submit" method="post">
+          <div>
+            <label for="loginUser">Pseudonyme :</label>
+            <input
+              placeholder="Saissir ici"
+              type="text"
+              name="loginUser"
+              id="loginUser"
+            />
+          </div>
+          <div>
+            <label for="loginPswd">Mot de passe :</label>
+            <input
+              placeholder="Saissir ici"
+              type="text"
+              name="loginPswd"
+              id="loginPswd"
+            />
+          </div>
+          <div id="register">
+            <span>Pas de compte ?</span>
+            <a href="./register.html">Créer le compte</a>
+          </div>
+        </form>
+      </div>
+      <button form="loginForm" type="submit">Confirmer</button>
     </main>
   </body>
 </html>

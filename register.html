@@ -3,8 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/register.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
     <title>Register</title>
   </head>
-  <body></body>
+  <body id="registerBody">
+    <main>
+      <div>
+        <h1>Register</h1>
+        <form id="registerForm" action="/submit" method="post">
+          <div>
+            <label for="registerUser">Pseudonyme :</label>
+            <input
+              placeholder="Définir ici"
+              type="text"
+              name="registerUser"
+              id="registerUser"
+            />
+          </div>
+          <div>
+            <label for="registerPswd">Mot de Passe :</label>
+            <input
+              placeholder="Définir ici"
+              type="text"
+              name="registerPswd"
+              id="registerPswd"
+            />
+          </div>
+          <div>
+            <label for="registerPswdC">Confirmer le MDP :</label>
+            <input
+              placeholder="Confirmer ici"
+              type="text"
+              name="registerPswdC"
+              id="registerPswdC"
+            />
+          </div>
+        </form>
+      </div>
+      <button form="registerForm" type="submit">Créer</button>
+    </main>
+  </body>
 </html>
