@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/profile.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap");
+    </style>
     <title>Profile</title>
   </head>
   <body>
@@ -16,6 +20,7 @@
     </header>
     <main>
       <div>
+        <!-- Profile user banner -->
         <div id="banner">
           <div id="profile">
             <div>
@@ -26,7 +31,7 @@
           </div>
           <div id="info">
             <div>
-              <h2>Pepito</h2>
+              <span>Pepito</span>
             </div>
             <div>
               <div id="playerLevel">
@@ -34,6 +39,7 @@
                 <div>
                   <div id="lvl"></div>
                 </div>
+                <!-- ↓ Variable Experience, needs JS -->
                 <p>Experience: 330/1979</p>
               </div>
               <div id="playerRank">
@@ -47,7 +53,11 @@
             </div>
           </div>
         </div>
-        <div id="statistics"></div>
+        <!-- Profile user statistics -->
+        <div id="statistics">
+          <h2>Statistiques:</h2>
+          <div id="statsContent"></div>
+        </div>
       </div>
     </main>
     <footer></footer>

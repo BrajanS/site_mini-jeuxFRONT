@@ -47,7 +47,7 @@ main > div {
   display: flex;
   flex-direction: column;
 }
-
+/* ---- PROFILE BANNER CSS ------------------------------*/
 #banner {
   height: 300px;
   width: 100%;
@@ -93,30 +93,51 @@ main > div {
   justify-content: space-between;
 }
 
-#info > div:nth-child(2) {
+#info > div:first-child {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-family: "Aleo", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#info > div:last-child {
   display: flex;
   justify-content: space-between;
   width: 100%;
   border-top: 1px solid black;
   border-left: 1px solid black;
-  height: 100%;
+  height: 60%;
 }
+
 #playerLevel {
   padding: 20px;
-  width: 100%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Big Shoulders", sans-serif;
+  color: #1c0082;
+  font-size: 40px;
+}
+
+#playerLevel > h3 {
+  font-weight: bold;
 }
 
 /* Exp Bar */
 #playerLevel > div {
   background-color: #215263;
-  height: 20px;
+  height: 30px;
   display: flex;
   align-items: center;
   border-radius: 15px;
 }
 
 #lvl {
-  background-color: greenyellow;
+  background-color: rgba(172, 255, 47, 0.9);
   width: 120px; /* Amount of EXP has to be variable through JAVA Script */
   height: calc(100% - 4px);
   border-radius: 15px;
@@ -141,4 +162,15 @@ main > div {
 #playerRank > div > img {
   width: 100%;
   aspect-ratio: 1;
+}
+
+/* ---- PROFILE STATISTICS CSS ------------------------------*/
+
+#statsContent {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  background-color: #619daf;
+  border: 2px solid black;
 }
