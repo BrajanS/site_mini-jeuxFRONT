@@ -2,6 +2,15 @@
   margin: 0;
 }
 
+@media (max-width: 840px) {
+  body {
+    flex-direction: column;
+  }
+  header {
+    margin: auto;
+  }
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -21,7 +30,9 @@ body {
 
 header {
   width: 64px;
-  height: 64px;
+  aspect-ratio: 1;
+  display: flex;
+  flex-shrink: 0;
 }
 
 header > nav,
@@ -164,6 +175,7 @@ main > div {
 #playerRank > div > img {
   width: 100%;
   aspect-ratio: 1;
+  min-width: 80px;
 }
 
 /* ---- PROFILE STATISTICS CSS ------------------------------*/
