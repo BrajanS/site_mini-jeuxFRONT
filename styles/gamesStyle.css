@@ -35,7 +35,16 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  font-family: "Big Shoulders", sans-serif;
+  font-family: "Alumni Sans", sans-serif;
+}
+
+#gameNav h3 {
+  font-size: 64px;
+  font-weight: 400;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid;
 }
 
 #gameNav h3,
@@ -45,10 +54,23 @@
   display: flex;
   place-content: center;
   place-items: center;
+  box-sizing: border-box;
 }
 
 #gameNav button {
+  background-color: white;
+  font-size: 32px;
   font-family: inherit;
   aspect-ratio: 1;
-  padding: 5px;
+}
+
+#fullScreen {
+  position: relative;
+}
+
+#fullScreen img {
+  display: flex;
+  width: calc(100% - 10px);
+  aspect-ratio: 1;
+  position: absolute;
 }

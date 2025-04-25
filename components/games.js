@@ -48,10 +48,14 @@ function openGame(chosenGame) {
     exitGame.textContent = "Leave";
     gameTitle.textContent = "Pierre Papier Ciseau";
     fullScreen.textContent = "Full";
+    fullScreen.id = "fullScreen";
 
     gameNav.appendChild(exitGame);
     gameNav.appendChild(gameTitle);
     gameNav.appendChild(fullScreen);
+    const resize = document.createElement("img");
+    resize.src = "../ressources/images/resize.png";
+    fullScreen.appendChild(resize);
   }
   // Game is P4
   else if (chosenGame.game === "P4") {
