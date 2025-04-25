@@ -9,9 +9,6 @@ gameButtons.forEach((button, btnNum) => {
   button.addEventListener("click", () => {
     let gameNum = gamesList[btnNum].game_id;
     if (btnNum === gameNum) {
-      /*console.log(
-        `btnNum: ${btnNum} & game_id: ${gameNum} / ${gamesList[btnNum].game}`
-      );*/
       gamesContainer.classList.add("hiddenOn");
       // Game Launch
       openGame(gamesList[btnNum]);

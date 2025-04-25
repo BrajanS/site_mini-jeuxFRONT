@@ -4,6 +4,7 @@
 }
 
 #gameMenu {
+  padding-top: 20px;
   box-sizing: border-box;
   border: 2px solid black;
   width: fit-content;
@@ -26,7 +27,7 @@
 #screen {
   background-color: rgba(0, 0, 255, 0.4);
   height: 100%;
-  width: 70%;
+  width: 820px;
 }
 
 #gameNav {
