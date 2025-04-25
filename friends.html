@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/friends.css" />
+    <link rel="stylesheet" href="./styles/profile.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap");
+    </style>
     <title>Friends</title>
   </head>
   <body>
@@ -14,7 +18,42 @@
         </a>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <div>
+        <div id="banner">
+          <div id="profile">
+            <div>
+              <div id="pfp">
+                <img src="./ressources/images/profile.png" alt="profile logo" />
+              </div>
+            </div>
+          </div>
+          <div id="info">
+            <div>
+              <span>Amigo</span>
+            </div>
+            <div>
+              <div id="playerLevel">
+                <h3>Lvl 33</h3>
+                <div>
+                  <div id="lvl"></div>
+                </div>
+                <!-- ↓ Variable Experience, needs JS -->
+                <p>Experience: 1801/1979</p>
+              </div>
+              <div id="playerRank">
+                <div>
+                  <img
+                    src="./ressources/images/chevron-rank-1.png"
+                    alt="rank"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer></footer>
   </body>
 </html>

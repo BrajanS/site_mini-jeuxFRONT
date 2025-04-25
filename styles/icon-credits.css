@@ -1,6 +1,7 @@
 #Credits {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 ul strong {
