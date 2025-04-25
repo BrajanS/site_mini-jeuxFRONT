@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap");
+.hiddenOn {
+  display: none !important;
+}
+
+#gameMenu {
+  box-sizing: border-box;
+  border: 2px solid black;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-self: center;
+}
+
+#gameZone {
+  background-color: aquamarine;
+  width: 1140px;
+  height: 500px;
+  border: 1px solid black;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#screen {
+  background-color: rgba(0, 0, 255, 0.4);
+  height: 100%;
+  width: 70%;
+}
+
+#gameNav {
+  background-color: cadetblue;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: "Big Shoulders", sans-serif;
+}
+
+#gameNav h3,
+#gameNav button {
+  height: 100%;
+  border-radius: 15px;
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
+#gameNav button {
+  font-family: inherit;
+  aspect-ratio: 1;
+  padding: 5px;
+}
