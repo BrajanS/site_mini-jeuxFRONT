@@ -1,4 +1,4 @@
-let users = [
+let existingUsers = [
   {
     username: "Pepito",
     password: "Id0NotThinkSo!",
@@ -12,6 +12,10 @@ let users = [
     password: "admin",
   },
 ];
+// localStorage.setItem("users", JSON.stringify(existingUsers));
+
+const users = JSON.parse(localStorage.getItem("users"));
+localStorage.setItem("users", JSON.stringify(users));
 
 // Login
 const submitLogin = document.querySelector("#loginForm");
@@ -25,11 +29,28 @@ submitLogin.addEventListener("submit", (event) => {
   );
 
   if (username === "" && password === "") {
-    console.log("Empty inputs");
+    errorMessage("Empty inputs");
   } else if (matchedUser) {
-    console.log("Here:", matchedUser);
-    window.location.href = "./index.html";
+    console.log(matchedUser);
+    localStorage.setItem("logged", JSON.stringify(matchedUser));
+    setTimeout(() => {
+      window.location.href = "./index.html";
+    }, 0);
   } else {
-    console.log("User doesn't exist, verify if you made any mistakes");
+    errorMessage("User doesn't exist, verify if you made any mistakes");
   }
 });
+
+function errorMessage(message, bool) {
+  const searchErrorMessage = document.getElementById("errorMessage");
+  if (searchErrorMessage) {
+    searchErrorMessage.textContent = message;
+  } else {
+    const errorMsg = document.createElement("span");
+    const loginForm = document.getElementById("loginForm");
+    errorMsg.id = "errorMessage";
+    errorMsg.textContent = message;
+    errorMsg.style.color = "red";
+    loginForm.appendChild(errorMsg);
+  }
+}

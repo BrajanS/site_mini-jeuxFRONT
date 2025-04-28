@@ -1,21 +1,7 @@
-let existingUsers = [
-  {
-    username: "Pepito",
-    password: "Id0NotThinkSo!",
-  },
-  {
-    username: "Amigo",
-    password: "_tHink1ngIsBad",
-  },
-  {
-    username: "admin",
-    password: "admin",
-  },
-];
+const users = JSON.parse(localStorage.getItem("users")) || [];
 
 // Register
 const registerForm = document.querySelector("#registerForm");
-console.log(existingUsers);
 
 registerForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -23,10 +9,9 @@ registerForm.addEventListener("submit", (event) => {
   const newPswd = document.querySelector("#registerPswd").value;
   const confirmPswd = document.querySelector("#registerPswdC").value;
   const inputsVerify = [newUsername, newPswd, confirmPswd];
-  console.log(inputsVerify);
 
-  if (existingUsers.some((user) => user.username === newUsername)) {
-    console.log(
+  if (users.some((user) => user.username === newUsername)) {
+    errorMessage(
       "This username / user, already exists. Please choose a different one."
     );
   }
@@ -37,14 +22,31 @@ registerForm.addEventListener("submit", (event) => {
   ) {
     const saveUser = {
       username: newUsername,
-      newPswd: newPswd,
+      password: newPswd,
     };
-    existingUsers.push(saveUser);
-    console.log(existingUsers);
+    users.push(saveUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
     setTimeout(() => {
-      window.location.href = "index.html";
-    }, 5 * 1000);
+      window.location.href = "login.html";
+    }, 0);
+  } else if (inputsVerify.some((text) => text === "")) {
+    errorMessage("Some inputs are Empty, please fill the register first");
   } else {
-    console.log("The password is different from the Confirm password.");
+    errorMessage("The password is different from the Confirm password.");
   }
 });
+
+function errorMessage(message) {
+  const searchErrorMessage = document.getElementById("errorMessage");
+  if (searchErrorMessage) {
+    searchErrorMessage.textContent = message;
+  } else {
+    const errorMsg = document.createElement("span");
+    const loginForm = document.getElementById("registerForm");
+    errorMsg.id = "errorMessage";
+    errorMsg.textContent = message;
+    errorMsg.style.color = "red";
+    loginForm.appendChild(errorMsg);
+  }
+}

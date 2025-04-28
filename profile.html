@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/profile.css" />
+    <script src="./components/profile.js" defer></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap");
@@ -31,16 +32,20 @@
           </div>
           <div id="info">
             <div>
-              <span>Pepito</span>
+              <span>Guest</span>
             </div>
             <div>
               <div id="playerLevel">
-                <h3>Lvl 23</h3>
+                <h3>Lvl <span id="currentLvl">0</span></h3>
                 <div>
                   <div id="lvl"></div>
                 </div>
                 <!-- ↓ Variable Experience, needs JS -->
-                <p>Experience: 330/1979</p>
+                <p>
+                  Experience: <span id="currentExp">0</span>/<span id="nextLvl"
+                    >100</span
+                  >
+                </p>
               </div>
               <div id="playerRank">
                 <div>
@@ -59,33 +64,33 @@
           <div id="statsContent">
             <div>
               <span>Wins : </span>
-              <span></span>
+              <span id="stat-wins"></span>
               <div>
                 <img src="./ressources/images/win.png" alt="Won" />
               </div>
             </div>
             <div>
               <span>Loses : </span>
-              <span></span>
+              <span id="stat-loses"></span>
               <div><img src="./ressources/images/lost.png" alt="Lost" /></div>
             </div>
             <div>
               <span>Games played : </span>
-              <span></span>
+              <span id="stat-games_played"></span>
               <div>
                 <img src="./ressources/images/game.png" alt="Games played" />
               </div>
             </div>
             <div>
               <span>Total games at PPC : </span>
-              <span></span>
+              <span id="stat-total_games_ppc"></span>
               <div>
                 <img src="./ressources/images/rock.png" alt="Games at PPC" />
               </div>
             </div>
             <div>
               <span>Total games at P4 : </span>
-              <span></span>
+              <span id="stat-total_games_p4"></span>
               <div>
                 <img src="./ressources/images/abacus.png" alt="Games at P4" />
               </div>
@@ -93,7 +98,7 @@
             <div>
               <span>Time spent : </span>
               <div>
-                <span></span>
+                <span id="stat-time_spent"></span>
                 <span>hrs</span>
               </div>
               <div>

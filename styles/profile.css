@@ -138,6 +138,7 @@ main > div {
   align-items: center;
   border-radius: 15px;
   min-height: 20px;
+  overflow: hidden;
 }
 
 #lvl {
