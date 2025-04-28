@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./styles/style_header.css" />
     <link rel="stylesheet" href="./styles/style_main.css" />
     <link rel="stylesheet" href="./styles/gamesStyle.css" />
+    <script src="./components/index.js" defer></script>
     <script src="./components/games.js" defer></script>
     <script src="./components/chat.js" defer></script>
     <style>
@@ -25,9 +26,32 @@
           <a href="./friends.html">
             <img src="./ressources/images/friends.png" alt="Friends page" />
           </a>
-          <a href="./profile.html">
+          <a id="profileBtn" href="./profile.html">
             <img src="./ressources/images/profile.png" alt="Profile page" />
           </a>
+          <!-- <button style="position: relative" id="profileBtn">
+            <img src="./ressources/images/profile.png" alt="Profile page" />
+            <div
+              style="
+                background-color: white;
+                width: 200px;
+                height: 100px;
+                position: absolute;
+                bottom: -103px;
+                right: 0;
+                border-radius: 5px;
+                display: none;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <a
+                style="width: 100%; padding-top: 5px; padding-bottom: 5px"
+                href="./profile.html"
+                >Allez au profil</a
+              >
+            </div>
+          </button> -->
         </div>
       </nav>
     </header>

@@ -54,14 +54,14 @@ nav > div:last-child > a:first-child {
   width: 80px;
   aspect-ratio: 1;
 }
-nav > div:last-child > a:last-child {
+#profileBtn {
   display: flex;
   width: 120px;
   aspect-ratio: 1;
   background-color: #d7fcff;
-  outline: 3px solid black;
-  outline-offset: -3px;
+  border: 3px solid black;
   border-radius: 50%;
+  box-sizing: border-box;
 }
 
 nav > div:last-child > a:first-child > img:first-child {
@@ -69,7 +69,7 @@ nav > div:last-child > a:first-child > img:first-child {
   height: 100%;
 }
 
-nav > div:last-child > a:last-child > img:last-child {
+#profileBtn > img:last-child {
   width: 100%;
   aspect-ratio: 1;
   margin: 10px;

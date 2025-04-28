@@ -1,11 +1,8 @@
 const users = JSON.parse(localStorage.getItem("users"));
 const logggedAs = JSON.parse(localStorage.getItem("logged"));
-console.log(logggedAs);
 
 const username = document.querySelector("#info > div > span");
 username.textContent = logggedAs.username;
-
-console.log(users);
 
 // #region Find the index inside users[] --> users[index], to add Experience and Stats if they do NOT exist yet
 const foundUser = users.findIndex(
@@ -62,8 +59,6 @@ const games_played = document.querySelector("#stat-games_played");
 const total_games_ppc = document.querySelector("#stat-total_games_ppc");
 const total_games_p4 = document.querySelector("#stat-total_games_p4");
 const time_spent = document.querySelector("#stat-time_spent");
-
-console.log(user.statistics.wins);
 
 wins.textContent = user.statistics.wins;
 loses.textContent = user.statistics.loses;
