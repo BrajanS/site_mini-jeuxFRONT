@@ -33,15 +33,13 @@ submitLogin.addEventListener("submit", (event) => {
   } else if (matchedUser) {
     console.log(matchedUser);
     localStorage.setItem("logged", JSON.stringify(matchedUser));
-    setTimeout(() => {
-      window.location.href = "./index.html";
-    }, 0);
+    window.location.href = "./index.html";
   } else {
     errorMessage("User doesn't exist, verify if you made any mistakes");
   }
 });
 
-function errorMessage(message, bool) {
+function errorMessage(message) {
   const searchErrorMessage = document.getElementById("errorMessage");
   if (searchErrorMessage) {
     searchErrorMessage.textContent = message;

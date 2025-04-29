@@ -33,8 +33,8 @@ const playerExperience = document.querySelector("#currentExp");
 const playerNextLvlExperience = document.querySelector("#nextLvl");
 const lvlBar = document.querySelector("#lvl");
 
-/*let currentExp = user.experience;    Dynamic one */ // experience the player currently has
-let currentExp = 304;
+let currentExp = user.experience;
+// let currentExp = 253;
 let baseExp = 100; // experience goal before Leveling Up
 let level = 0;
 

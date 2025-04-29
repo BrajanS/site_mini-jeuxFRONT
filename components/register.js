@@ -27,9 +27,7 @@ registerForm.addEventListener("submit", (event) => {
     users.push(saveUser);
     localStorage.setItem("users", JSON.stringify(users));
 
-    setTimeout(() => {
-      window.location.href = "login.html";
-    }, 0);
+    window.location.href = "login.html";
   } else if (inputsVerify.some((text) => text === "")) {
     errorMessage("Some inputs are Empty, please fill the register first");
   } else {
