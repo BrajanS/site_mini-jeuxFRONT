@@ -56,12 +56,14 @@ nav > div:last-child > a:first-child {
 }
 #profileBtn {
   display: flex;
+  position: relative;
   width: 120px;
   aspect-ratio: 1;
   background-color: #d7fcff;
   border: 3px solid black;
   border-radius: 50%;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 nav > div:last-child > a:first-child > img:first-child {
@@ -69,8 +71,35 @@ nav > div:last-child > a:first-child > img:first-child {
   height: 100%;
 }
 
-#profileBtn > img:last-child {
+#profileBtn > img {
   width: 100%;
   aspect-ratio: 1;
   margin: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu {
+  background-color: #d7fcff;
+  width: 200px;
+  height: fit-content;
+  position: absolute;
+  top: 120px;
+  right: 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profileMenu > a {
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
 }
