@@ -73,18 +73,50 @@ lvlBar.style.width = `${widthCalculated}%`;
 // #endregion ----------------------------------------------------------------
 
 // #region Statistics
-const content = document.querySelector("#content");
+const statistics = document.querySelector("#statistics");
 const showSocials = document.querySelector("#titleAndSocials > div > button");
-let saveStats;
+
+let showingFriends = false;
+let savedStats = null;
 
 showSocials.addEventListener("click", () => {
   const title = document.querySelector("h2");
-  title.textContent = "Friends:";
-  saveStats = content.cloneNode(true);
-  content.innerHTML = ""; // Removes all stats inside
-  Array.from(user.friends).forEach((friend) => {
-    console.log(friend);
-  });
+
+  if (!showingFriends) {
+    showingFriends = true;
+    title.textContent = "Friends:";
+
+    const content = document.querySelector("#content");
+    if (content) {
+      savedStats = content.cloneNode(true);
+      content.remove();
+    }
+
+    const friendsList = document.createElement("div");
+    friendsList.id = "friendsList";
+    statistics.appendChild(friendsList);
+
+    user.friends.forEach((friend) => {
+      // #region Structure Amis de base
+      const friendContent = document.createElement("div");
+      friendsList.appendChild(friendContent);
+      const friendData = document.createElement("div");
+      friendData.classList.add = "friendData";
+      const friendButtons = document.createElement("div");
+      friendButtons.classList.add = "friendButtons";
+      friendContent.appendChild(friendData);
+      friendContent.appendChild(friendButtons);
+      // #endregion
+      const pfpImage = document.createElement("div");
+    });
+  } else {
+    showingFriends = false;
+    title.textContent = "Statistics:";
+
+    const findFriendsList = document.querySelector("#friendsList");
+    if (findFriendsList) findFriendsList.remove();
+    if (savedStats) statistics.appendChild(savedStats);
+  }
 });
 
 function fillStats() {
