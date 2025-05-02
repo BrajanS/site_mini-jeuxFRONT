@@ -187,7 +187,34 @@ h2 {
   font-size: 40px;
 }
 
-#statsContent {
+#titleAndSocials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+#titleAndSocials > div {
+  display: flex;
+  height: 100%;
+}
+
+#titleAndSocials > div > button {
+  background-color: #619daf;
+  border: 2px solid black;
+  box-sizing: border-box;
+  height: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  cursor: pointer;
+}
+
+#titleAndSocials > div > button > img {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+#content {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -199,7 +226,7 @@ h2 {
   font-size: 32px;
 }
 
-#statsContent > div {
+#content > div {
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -210,7 +237,7 @@ h2 {
   border-bottom: 1px solid black;
 }
 
-#statsContent > div > div > img {
+#content > div > div > img {
   display: flex;
   height: 32px;
 }
@@ -273,7 +300,7 @@ h2 {
     font-size: 26px;
   }
 
-  #statsContent span {
+  #content span {
     font-size: 20px;
   }
 }

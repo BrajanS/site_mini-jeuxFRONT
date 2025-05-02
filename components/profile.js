@@ -8,14 +8,9 @@ username.textContent = logggedAs.username;
 const foundUser = users.findIndex(
   (user) => user.username === logggedAs.username
 );
-console.log(foundUser);
 const user = users[foundUser];
-if (!user.experience) {
-  user.experience = 0;
-  localStorage.setItem("users", JSON.stringify(users));
-}
-if (!user.statistics) {
-  user.statistics = {
+function defaultData(customUser) {
+  const emptyStats = {
     wins: 0,
     loses: 0,
     games_played: 0,
@@ -23,8 +18,33 @@ if (!user.statistics) {
     total_games_p4: 0,
     time_spent: 0,
   };
-  localStorage.setItem("users", JSON.stringify(users));
+  if (!customUser.experience) {
+    customUser.experience = 0;
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+  if (!customUser.statistics) {
+    customUser.statistics = emptyStats;
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+
+  if (!customUser.friends) {
+    // Adds those as default friends
+    customUser.friends = [
+      {
+        username: users[0].username,
+        experience: 0,
+        statistics: emptyStats,
+      },
+      {
+        username: users[1].username,
+        experience: 0,
+        statistics: emptyStats,
+      },
+    ];
+    localStorage.setItem("users", JSON.stringify(users));
+  }
 }
+defaultData(user);
 // #endregion ---------------------------------------------------------------------------------------------------------
 
 // #region Experience system ----------------------------------------------------------------
@@ -53,18 +73,37 @@ lvlBar.style.width = `${widthCalculated}%`;
 // #endregion ----------------------------------------------------------------
 
 // #region Statistics
-const wins = document.querySelector("#stat-wins");
-const loses = document.querySelector("#stat-loses");
-const games_played = document.querySelector("#stat-games_played");
-const total_games_ppc = document.querySelector("#stat-total_games_ppc");
-const total_games_p4 = document.querySelector("#stat-total_games_p4");
-const time_spent = document.querySelector("#stat-time_spent");
+const content = document.querySelector("#content");
+const showSocials = document.querySelector("#titleAndSocials > div > button");
+let saveStats;
 
-wins.textContent = user.statistics.wins;
-loses.textContent = user.statistics.loses;
-games_played.textContent = user.statistics.games_played;
-total_games_ppc.textContent = user.statistics.total_games_ppc;
-total_games_p4.textContent = user.statistics.total_games_p4;
-time_spent.textContent = user.statistics.time_spent;
+showSocials.addEventListener("click", () => {
+  const title = document.querySelector("h2");
+  title.textContent = "Friends:";
+  saveStats = content.cloneNode(true);
+  content.innerHTML = ""; // Removes all stats inside
+  Array.from(user.friends).forEach((friend) => {
+    console.log(friend);
+  });
+});
 
+function fillStats() {
+  if (content) {
+    const wins = document.querySelector("#stat-wins");
+    const loses = document.querySelector("#stat-loses");
+    const games_played = document.querySelector("#stat-games_played");
+    const total_games_ppc = document.querySelector("#stat-total_games_ppc");
+    const total_games_p4 = document.querySelector("#stat-total_games_p4");
+    const time_spent = document.querySelector("#stat-time_spent");
+
+    wins.textContent = user.statistics.wins;
+    loses.textContent = user.statistics.loses;
+    games_played.textContent = user.statistics.games_played;
+    total_games_ppc.textContent = user.statistics.total_games_ppc;
+    total_games_p4.textContent = user.statistics.total_games_p4;
+    time_spent.textContent = user.statistics.time_spent;
+  }
+}
+
+fillStats();
 // #endregion ---------------------------------------------------------------------------------
