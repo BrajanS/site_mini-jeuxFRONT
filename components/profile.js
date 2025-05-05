@@ -107,7 +107,18 @@ showSocials.addEventListener("click", () => {
       friendContent.appendChild(friendData);
       friendContent.appendChild(friendButtons);
       // #endregion
+      // #region Profile of friends
       const pfpImage = document.createElement("div");
+      pfpImage.classList.add("friendsPfp");
+      friendData.appendChild(pfpImage);
+      const imageOfFriend = document.createElement("img");
+      imageOfFriend.src = "../ressources/images/profile.png";
+      pfpImage.appendChild(imageOfFriend);
+
+      const friendUsername = document.createElement("span");
+      friendUsername.textContent = friend.username;
+      friendData.appendChild(friendUsername);
+      // #endregion
     });
   } else {
     showingFriends = false;
