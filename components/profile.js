@@ -32,15 +32,21 @@ function defaultData(customUser) {
     customUser.friends = [
       {
         username: users[0].username,
+        image: users[0].image,
         experience: 0,
         statistics: emptyStats,
       },
       {
         username: users[1].username,
+        image: users[0].image,
         experience: 0,
         statistics: emptyStats,
       },
     ];
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+  if (!customUser.image) {
+    customUser.image = "../ressources/images/profile.png";
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
@@ -112,7 +118,7 @@ showSocials.addEventListener("click", () => {
       pfpImage.classList.add("friendsPfp");
       friendData.appendChild(pfpImage);
       const imageOfFriend = document.createElement("img");
-      imageOfFriend.src = "../ressources/images/profile.png";
+      imageOfFriend.src = friend.image;
       pfpImage.appendChild(imageOfFriend);
 
       const friendUsername = document.createElement("span");
