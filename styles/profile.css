@@ -279,6 +279,9 @@ h2 {
   height: 60px;
   display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .friendData {
@@ -286,12 +289,19 @@ h2 {
 }
 
 .friendData > div:first-child {
-  background-color: red;
-  height: 100%;
+  background-color: white;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .friendData > div:first-child > img {
-  height: 100%;
+  height: 90%;
   aspect-ratio: 1;
 }
 

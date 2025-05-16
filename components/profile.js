@@ -10,7 +10,7 @@ const user = users[foundUser];
 const pfpImage = document.querySelector("#pfp > img");
 const username = document.querySelector("#info > div > span");
 
-pfpImage.src = user.profileImg;
+pfpImage.src = user.profileImg || "../ressources/images/profile.png";
 username.textContent = user.username;
 
 function defaultData(customUser) {
@@ -39,21 +39,15 @@ function defaultData(customUser) {
     customUser.friends = [
       {
         username: users[0].username,
-        image: users[0].image,
         experience: 0,
         statistics: emptyStats,
       },
       {
         username: users[1].username,
-        image: users[0].image,
         experience: 0,
         statistics: emptyStats,
       },
     ];
-    localStorage.setItem("users", JSON.stringify(users));
-  }
-  if (!customUser.image) {
-    customUser.image = "../ressources/images/profile.png";
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
@@ -66,22 +60,31 @@ const playerExperience = document.querySelector("#currentExp");
 const playerNextLvlExperience = document.querySelector("#nextLvl");
 const lvlBar = document.querySelector("#lvl");
 
-let currentExp = user.experience;
-// let currentExp = 258;
-let baseExp = 100; // experience goal before Leveling Up
-let level = 0;
+function expSystem(selectedUser) {
+  let expObject = {
+    currentExp: selectedUser.experience,
+    // currentExp: 258,
+    baseExp: 100, // experience goal before Leveling Up
+    level: 0,
+  };
 
-while (currentExp >= baseExp) {
-  currentExp -= baseExp;
-  level++;
-  baseExp += Math.round((baseExp / 2) * 1.05); // 5% more and round UP
+  while (expObject.currentExp >= expObject.baseExp) {
+    expObject.currentExp -= expObject.baseExp;
+    expObject.level++;
+    expObject.baseExp += Math.round((expObject.baseExp / 2) * 1.05); // 5% more and round UP
+  }
+  return expObject;
 }
 
-playerExperience.textContent = currentExp;
-playerNextLvlExperience.textContent = baseExp;
-playerLvl.textContent = level;
+const userExperienceData = expSystem(user);
+playerExperience.textContent = userExperienceData.currentExp;
+playerNextLvlExperience.textContent = userExperienceData.baseExp;
+playerLvl.textContent = userExperienceData.level;
 
-const widthCalculated = Math.min(100, (currentExp / baseExp) * 100);
+const widthCalculated = Math.min(
+  100,
+  (userExperienceData.currentExp / userExperienceData.baseExp) * 100
+);
 lvlBar.style.width = `${widthCalculated}%`;
 // #endregion ----------------------------------------------------------------
 
@@ -94,10 +97,15 @@ let savedStats = null;
 
 showSocials.addEventListener("click", () => {
   const title = document.querySelector("h2");
+  const alternateImg = document.querySelector(
+    "#titleAndSocials > div > button > img"
+  );
 
   if (!showingFriends) {
     showingFriends = true;
     title.textContent = "Friends:";
+    alternateImg.src = "../ressources/images/statistics.png";
+    alternateImg.alt = "show Statistics";
 
     const content = document.querySelector("#content");
     if (content) {
@@ -121,15 +129,24 @@ showSocials.addEventListener("click", () => {
       friendContent.appendChild(friendButtons);
       // #endregion
       const friendPfp = document.createElement("div");
-      friendData.appendChild(friendPfp);
       const friendPfpImage = document.createElement("img");
+      const friendUsername = document.createElement("span");
+      const friendLvl = document.createElement("span");
       friendPfpImage.src =
-        user.profileImg || "../ressources/images/profile.png";
+        friend.profileImg || "../ressources/images/profile.png";
+      friendUsername.textContent = friend.username;
+      const friendLvlCalculated = expSystem(friend);
+      friendLvl.textContent = "Lvl: " + friendLvlCalculated.level;
+      friendData.appendChild(friendPfp);
       friendPfp.appendChild(friendPfpImage);
+      friendData.appendChild(friendUsername);
+      friendData.appendChild(friendLvl);
     });
   } else {
     showingFriends = false;
     title.textContent = "Statistics:";
+    alternateImg.src = "../ressources/images/socials.png";
+    alternateImg.alt = "show Socials";
 
     const findFriendsList = document.querySelector("#friendsList");
     if (findFriendsList) findFriendsList.remove();

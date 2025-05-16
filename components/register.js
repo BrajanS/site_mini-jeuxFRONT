@@ -1,5 +1,11 @@
 const users = JSON.parse(localStorage.getItem("users")) || [];
 
+/*function resetLocalStorage() {
+  localStorage.removeItem("logged");
+  users.pop();
+  localStorage.setItem("users", JSON.stringify(users));
+}*/
+
 // Register
 const registerForm = document.querySelector("#registerForm");
 
