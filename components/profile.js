@@ -1,14 +1,18 @@
 const users = JSON.parse(localStorage.getItem("users"));
 const logggedAs = JSON.parse(localStorage.getItem("logged"));
 
-const username = document.querySelector("#info > div > span");
-username.textContent = logggedAs.username;
-
 // #region Find the index inside users[] --> users[index], to add Experience and Stats if they do NOT exist yet
 const foundUser = users.findIndex(
   (user) => user.username === logggedAs.username
 );
 const user = users[foundUser];
+
+const pfpImage = document.querySelector("#pfp > img");
+const username = document.querySelector("#info > div > span");
+
+pfpImage.src = user.profileImg;
+username.textContent = user.username;
+
 function defaultData(customUser) {
   const emptyStats = {
     wins: 0,
@@ -18,6 +22,10 @@ function defaultData(customUser) {
     total_games_p4: 0,
     time_spent: 0,
   };
+  if (!customUser.profileImg) {
+    customUser.profileImg = "../ressources/images/profile.png";
+    localStorage.setItem("users", JSON.stringify(users));
+  }
   if (!customUser.experience) {
     customUser.experience = 0;
     localStorage.setItem("users", JSON.stringify(users));
@@ -26,7 +34,6 @@ function defaultData(customUser) {
     customUser.statistics = emptyStats;
     localStorage.setItem("users", JSON.stringify(users));
   }
-
   if (!customUser.friends) {
     // Adds those as default friends
     customUser.friends = [
@@ -54,7 +61,7 @@ const playerNextLvlExperience = document.querySelector("#nextLvl");
 const lvlBar = document.querySelector("#lvl");
 
 let currentExp = user.experience;
-// let currentExp = 253;
+// let currentExp = 258;
 let baseExp = 100; // experience goal before Leveling Up
 let level = 0;
 
@@ -101,13 +108,18 @@ showSocials.addEventListener("click", () => {
       const friendContent = document.createElement("div");
       friendsList.appendChild(friendContent);
       const friendData = document.createElement("div");
-      friendData.classList.add = "friendData";
+      friendData.className = "friendData";
       const friendButtons = document.createElement("div");
-      friendButtons.classList.add = "friendButtons";
+      friendButtons.className = "friendButtons";
       friendContent.appendChild(friendData);
       friendContent.appendChild(friendButtons);
       // #endregion
-      const pfpImage = document.createElement("div");
+      const friendPfp = document.createElement("div");
+      friendData.appendChild(friendPfp);
+      const friendPfpImage = document.createElement("img");
+      friendPfpImage.src =
+        user.profileImg || "../ressources/images/profile.png";
+      friendPfp.appendChild(friendPfpImage);
     });
   } else {
     showingFriends = false;

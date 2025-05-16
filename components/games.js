@@ -4,8 +4,8 @@ const gamesList = [
 ];
 
 const gameButtons = games.querySelectorAll("#games > button");
+const gamesContainer = document.getElementById("games");
 gameButtons.forEach((button, btnNum) => {
-  const gamesContainer = document.getElementById("games");
   button.addEventListener("click", () => {
     let gameNum = gamesList[btnNum].game_id;
     if (btnNum === gameNum) {
@@ -24,12 +24,12 @@ function openGame(chosenGame) {
     console.log(chosenGame);
     const main = document.querySelector("main");
     const gameMenu = document.createElement("div");
-    gameMenu.id = "gameMenu";
-    main.appendChild(gameMenu);
     const gameZone = document.createElement("div");
     const gameNav = document.createElement("div");
+    gameMenu.id = "gameMenu";
     gameZone.id = "gameZone";
     gameNav.id = "gameNav";
+    main.appendChild(gameMenu);
     gameMenu.appendChild(gameZone);
     gameMenu.appendChild(gameNav);
     // Game contents
@@ -42,17 +42,25 @@ function openGame(chosenGame) {
     const gameTitle = document.createElement("h3");
     const fullScreen = document.createElement("button");
 
-    exitGame.textContent = "Leave";
     gameTitle.textContent = "Pierre Papier Ciseau";
-    fullScreen.textContent = "Full";
-    fullScreen.id = "fullScreen";
-
     gameNav.appendChild(exitGame);
     gameNav.appendChild(gameTitle);
     gameNav.appendChild(fullScreen);
+
+    // Images
+    const exitImg = document.createElement("img");
     const resize = document.createElement("img");
+    exitImg.src = "../ressources/images/exit-svgrepo-com.png";
     resize.src = "../ressources/images/resize.png";
+    exitGame.appendChild(exitImg);
     fullScreen.appendChild(resize);
+
+    exitGame.addEventListener("click", () => {
+      const gameMenu = document.getElementById("gameMenu");
+      gamesContainer.classList.remove("hiddenOn");
+      console.clear();
+      gameMenu.remove();
+    });
   }
   // Game is P4
   else if (chosenGame.game === "P4") {

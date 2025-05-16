@@ -1,3 +1,4 @@
+/* #region Profile - Main structure*/
 * {
   margin: 0;
 }
@@ -49,7 +50,8 @@ main > div {
   display: flex;
   flex-direction: column;
 }
-/* ---- PROFILE BANNER CSS ------------------------------*/
+/* #endregion */
+/* #region---- PROFILE BANNER CSS ------------------------------*/
 #banner {
   min-height: 300px;
   flex-shrink: 0;
@@ -169,7 +171,7 @@ main > div {
   aspect-ratio: 1;
   min-width: 80px;
 }
-
+/* #endregion */
 /* ---- PROFILE STATISTICS CSS ------------------------------*/
 
 #statistics {
@@ -259,6 +261,20 @@ h2 {
   height: 60px;
   display: flex;
   justify-content: space-between;
+}
+
+.friendData {
+  height: 100%;
+}
+
+.friendData > div:first-child {
+  background-color: red;
+  height: 100%;
+}
+
+.friendData > div:first-child > img {
+  height: 100%;
+  aspect-ratio: 1;
 }
 
 @media (max-width: 840px) {

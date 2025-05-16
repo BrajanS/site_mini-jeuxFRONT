@@ -63,13 +63,11 @@
   font-size: 32px;
   font-family: inherit;
   aspect-ratio: 1;
-}
-
-#fullScreen {
   position: relative;
+  cursor: pointer;
 }
 
-#fullScreen img {
+#gameNav button img {
   display: flex;
   width: calc(100% - 10px);
   aspect-ratio: 1;
