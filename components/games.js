@@ -22,22 +22,49 @@ function openGame(chosenGame) {
   // Game is PPC
   if (chosenGame.game === "PPC") {
     console.log(chosenGame);
-    const main = document.querySelector("main");
-    const gameMenu = document.createElement("div");
-    const gameZone = document.createElement("div");
-    const gameNav = document.createElement("div");
-    gameMenu.id = "gameMenu";
-    gameZone.id = "gameZone";
-    gameNav.id = "gameNav";
-    main.appendChild(gameMenu);
-    gameMenu.appendChild(gameZone);
-    gameMenu.appendChild(gameNav);
-    // Game contents
+    const { gameZone, gameNav } = createGamesStructure();
+    // #region Game contents
     const screen = document.createElement("div");
-    screen.id = "screen";
+    const actionsMenu = document.createElement("div");
+    const turnActionsButton = document.createElement("button");
+    const turnActionsImg = document.createElement("img");
+    let screenWidth = 820;
+    screen.id = "screenPpc";
+    screen.style.width = `${screenWidth}px`;
+    actionsMenu.id = "actionsMenu";
+    turnActionsImg.src = "../ressources/images/turnActions.png";
     gameZone.appendChild(screen);
+    gameZone.appendChild(actionsMenu);
+    const ppcMenu = document.createElement("div");
+    ppcMenu.id = "ppcMenu";
+    screen.appendChild(ppcMenu);
+    const ppcTitle = document.createElement("span");
+    ppcTitle.textContent = "Rock Paper Scissors";
+    ppcMenu.appendChild(ppcTitle);
+    const ppcModes = document.createElement("div");
+    ppcModes.id = "ppcModes";
+    ppcMenu.appendChild(ppcModes);
+    const ppcModesTitle = document.createElement("h3");
+    ppcModesTitle.textContent = "Play mode:";
+    ppcModes.appendChild(ppcModesTitle);
+    const ppcModesContainer = document.createElement("div");
+    ppcModesContainer.id = "ppcModesContainer";
+    ppcModes.appendChild(ppcModesContainer);
+    const ppcModePlayer = document.createElement("button");
+    const ppcModeNpc = document.createElement("button");
+    ppcModePlayer.textContent = "Versus Player";
+    ppcModeNpc.textContent = "Versus NPC";
+    ppcModesContainer.append(ppcModePlayer, ppcModeNpc);
 
-    // Game Title and others
+    ppcModeNpc.addEventListener("click", () => {
+      console.log("hi");
+    });
+
+    actionsMenu.appendChild(turnActionsButton);
+    turnActionsButton.appendChild(turnActionsImg);
+    // #endregion
+
+    // #region Game Title and others
     const exitGame = document.createElement("button");
     const gameTitle = document.createElement("h3");
     const fullScreen = document.createElement("button");
@@ -61,14 +88,26 @@ function openGame(chosenGame) {
       console.clear();
       gameMenu.remove();
     });
+    // #endregion
   }
   // Game is P4
   else if (chosenGame.game === "P4") {
-    console.log("hi");
-    const main = document.querySelector("main");
-    const gameMenu = document.createElement("div");
-    gameMenu.id = "gameMenu";
-    main.appendChild(gameMenu);
     console.log(chosenGame);
+    const { gameZone, gameNav } = createGamesStructure();
   }
+}
+
+function createGamesStructure() {
+  const main = document.querySelector("main");
+  const gameMenu = document.createElement("div");
+  const gameZone = document.createElement("div");
+  const gameNav = document.createElement("div");
+  gameMenu.id = "gameMenu";
+  gameZone.id = "gameZone";
+  gameNav.id = "gameNav";
+  main.appendChild(gameMenu);
+  gameMenu.appendChild(gameZone);
+  gameMenu.appendChild(gameNav);
+
+  return { gameZone, gameNav };
 }
