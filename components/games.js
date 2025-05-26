@@ -1,3 +1,14 @@
+const users = JSON.parse(localStorage.getItem("users"));
+const logggedAs = JSON.parse(localStorage.getItem("logged"));
+
+// #region Find the index inside users[] --> users[index], to add Experience and Stats if they do NOT exist yet
+const foundUser = users.findIndex(
+  (user) => user.username === logggedAs.username
+);
+const user = users[foundUser];
+
+console.log(user);
+
 const gamesList = [
   {
     game: "PPC",
@@ -146,6 +157,26 @@ function loadPpcNPC() {
   const diffNormal = document.createElement("button");
   const diffHard = document.createElement("button");
   const diffCustom = document.createElement("button");
+  const npcModeSettings = {
+    normal: {
+      life: 3,
+      isHpBar: false,
+      damage: 1,
+      rounds: 3,
+    },
+    hard: {
+      life: 2,
+      isHpBar: false,
+      damage: 1,
+      rounds: 3,
+    },
+    custom: {
+      life: 3,
+      isHpBar: false,
+      damage: 1,
+      rounds: 3,
+    },
+  };
   difficultyMenu.id = "ppcDifficultyMenu";
   difficultyMenuTitle.textContent = "Choose Difficulty";
   difficultyOptions.id = "ppcDifficultyOptions";
@@ -157,13 +188,79 @@ function loadPpcNPC() {
   difficultyMenu.appendChild(difficultyOptions);
   difficultyOptions.append(diffNormal, diffHard, diffCustom);
   diffNormal.addEventListener("click", () => {
-    const npcModeSettings = {
-      life: 3,
-      isHpBar: false,
-      damage: 1,
-      rounds: 3,
-    };
+    launchPpcVsNpc(npcModeSettings.normal, difficultyMenu, screenPpc);
   });
 }
 
 function backToMenuPpc() {}
+
+function launchPpcVsNpc(settings, menuToClose, parent) {
+  menuToClose.classList.add("hiddenOn");
+  parent.style.backgroundImage = `url("../ressources/images/ppc-bamboo-bg.jpg")`;
+  const ppcGame = document.createElement("div");
+  const topBar = document.createElement("div");
+  const battleView = document.createElement("div");
+  const userSide = document.createElement("div");
+  const npcSide = document.createElement("div");
+  const userInfo = document.createElement("div");
+  const npcInfo = document.createElement("div");
+
+  const userAvatar = document.createElement("img");
+  const npcAvatar = document.createElement("img");
+  const userHearts = document.createElement("div");
+  const npcHearts = document.createElement("div");
+
+  const playerName = document.createElement("span");
+  const plrName = JSON.parse(localStorage.getItem("logged"));
+  const npcName = document.createElement("span");
+  // prettier-ignore
+  const randomName = [
+    { name: "Rocco Sharp"      },
+    { name: "Cassie Stone"     },
+    { name: "Nico Scissorhand" },
+    { name: "Jade Flint"       },
+    { name: "Victor Palmson"   },
+    { name: "Selena Slate"     },
+    { name: "Gabe Cutter"      },
+    { name: "Mira Foldwell"    },
+    { name: "Mira Foldwell"    },
+    { name: "Tara Crisp"       },
+  ];
+  const randomNumber = Math.floor(Math.random() * randomName.length - 1);
+
+  ppcGame.id = "ppcGame";
+  playerName.textContent = plrName.username;
+  npcName.textContent = randomName[randomNumber].name;
+  userSide.id = "userSide";
+  npcSide.id = "npcSide";
+  userInfo.id = "userInfo";
+  npcInfo.id = "npcInfo";
+  userAvatar.src = user.profileImg;
+  npcAvatar.src = "../ressources/images/lost.png";
+
+  parent.appendChild(ppcGame);
+  ppcGame.append(topBar, battleView);
+  topBar.append(userSide, npcSide);
+  userSide.appendChild(userInfo);
+  npcSide.appendChild(npcInfo);
+  userInfo.appendChild(userHearts);
+  npcInfo.appendChild(npcHearts);
+  const sides = [userHearts, npcHearts];
+
+  if (settings.isHpBar === false) {
+    // Adds Hearts to each sides
+    sides.forEach((side) => {
+      for (let i = 0; i < settings.life; i++) {
+        const hearts = document.createElement("img");
+        hearts.classList.add("hearts");
+        hearts.src = "../ressources/images/heart.png";
+        side.appendChild(hearts);
+      }
+    });
+  } else if (settings.isHpBar === true) {
+  }
+  userInfo.appendChild(playerName);
+  npcInfo.appendChild(npcName);
+  userSide.appendChild(userAvatar);
+  npcSide.appendChild(npcAvatar);
+}

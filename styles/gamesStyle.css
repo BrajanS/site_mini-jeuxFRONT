@@ -176,3 +176,42 @@
   background-color: white;
   cursor: pointer;
 }
+
+#ppcGame {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#ppcGame > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Alumni Sans", sans-serif;
+  font-size: 36px;
+  color: greenyellow;
+  font-weight: bold;
+}
+
+/* #userSide {
+  display: flex;
+} */
+
+#userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+#npcInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.hearts {
+  width: 50px;
+  height: 50px;
+}
