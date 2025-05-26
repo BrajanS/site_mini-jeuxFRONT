@@ -2,7 +2,7 @@
 .hiddenOn {
   display: none !important;
 }
-
+/* #region Classic Menu's */
 #gameMenu {
   padding-top: 20px;
   box-sizing: border-box;
@@ -139,4 +139,40 @@
   aspect-ratio: 1;
   position: absolute;
 }
-/* #endregion */
+/* #endregion GameNav */
+/* #endregion Classic Menu's */
+
+#ppcDifficultyMenu {
+  background-color: #3cbb5c7f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  font-family: "Alumni Sans", sans-serif;
+  font-size: 48px;
+}
+
+#ppcDifficultyOptions {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  display: flex;
+  gap: 50px;
+}
+
+#ppcDifficultyOptions > button {
+  box-sizing: border-box;
+  width: 120px;
+  aspect-ratio: 1;
+  font-size: 36px;
+  font-family: inherit;
+  border-radius: 25px;
+  background-color: white;
+  cursor: pointer;
+}

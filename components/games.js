@@ -138,9 +138,25 @@ function loadPpcNPC() {
   const screenPpc = document.getElementById("screenPpc");
   const ppcMenu = document.getElementById("ppcMenu");
   screenPpc.style.backgroundImage = `none`;
-  screenPpc.style.backgroundColor = "#ff0000aa";
   ppcMenu.classList.add("hiddenOn");
   // #endregion
+  const difficultyMenu = document.createElement("div");
+  const difficultyMenuTitle = document.createElement("span");
+  const difficultyOptions = document.createElement("div");
+  const diffNormal = document.createElement("button");
+  const diffHard = document.createElement("button");
+  const diffCustom = document.createElement("button");
+  difficultyMenu.id = "ppcDifficultyMenu";
+  difficultyMenuTitle.textContent = "Choose Difficulty";
+  difficultyOptions.id = "ppcDifficultyOptions";
+  diffNormal.textContent = "Normal";
+  diffHard.textContent = "Hard";
+  diffCustom.textContent = "Custom";
+  screenPpc.appendChild(difficultyMenu);
+  difficultyMenu.appendChild(difficultyMenuTitle);
+  difficultyMenu.appendChild(difficultyOptions);
+  difficultyOptions.append(diffNormal, diffHard, diffCustom);
+  diffNormal.addEventListener("click", () => {});
 }
 
 function backToMenuPpc() {}
