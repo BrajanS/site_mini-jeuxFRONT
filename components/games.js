@@ -156,7 +156,14 @@ function loadPpcNPC() {
   difficultyMenu.appendChild(difficultyMenuTitle);
   difficultyMenu.appendChild(difficultyOptions);
   difficultyOptions.append(diffNormal, diffHard, diffCustom);
-  diffNormal.addEventListener("click", () => {});
+  diffNormal.addEventListener("click", () => {
+    const npcModeSettings = {
+      life: 3,
+      isHpBar: false,
+      damage: 1,
+      rounds: 3,
+    };
+  });
 }
 
 function backToMenuPpc() {}
