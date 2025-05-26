@@ -1,6 +1,22 @@
 const gamesList = [
-  { game: "PPC", game_id: 0 },
-  { game: "P4", game_id: 1 },
+  {
+    game: "PPC",
+    game_id: 0,
+    game_backgrounds: {
+      menu: "../ressources/images/ppc-forest-bg.jpg",
+    },
+    game_images: {},
+    game_sprites: {},
+  },
+  {
+    game: "P4",
+    game_id: 1,
+    game_backgrounds: {
+      menu: "",
+    },
+    game_images: {},
+    game_sprites: {},
+  },
 ];
 
 const gameButtons = games.querySelectorAll("#games > button");
@@ -23,14 +39,19 @@ function openGame(chosenGame) {
   if (chosenGame.game === "PPC") {
     console.log(chosenGame);
     const { gameZone, gameNav } = createGamesStructure();
-    // #region Game contents
+    // #region PPC contents
     const screen = document.createElement("div");
     const actionsMenu = document.createElement("div");
     const turnActionsButton = document.createElement("button");
     const turnActionsImg = document.createElement("img");
+
     let screenWidth = 820;
     screen.id = "screenPpc";
     screen.style.width = `${screenWidth}px`;
+    screen.style.backgroundImage = `url(${gamesList[0].game_backgrounds.menu})`;
+    screen.style.backgroundPosition = "center";
+    screen.style.backgroundSize = "cover";
+
     actionsMenu.id = "actionsMenu";
     turnActionsImg.src = "../ressources/images/turnActions.png";
     gameZone.appendChild(screen);
@@ -52,19 +73,19 @@ function openGame(chosenGame) {
     ppcModes.appendChild(ppcModesContainer);
     const ppcModePlayer = document.createElement("button");
     const ppcModeNpc = document.createElement("button");
-    ppcModePlayer.textContent = "Versus Player";
+    ppcModePlayer.textContent = "Versus PLAYER";
     ppcModeNpc.textContent = "Versus NPC";
     ppcModesContainer.append(ppcModePlayer, ppcModeNpc);
 
     ppcModeNpc.addEventListener("click", () => {
-      console.log("hi");
+      loadPpcNPC();
     });
 
     actionsMenu.appendChild(turnActionsButton);
     turnActionsButton.appendChild(turnActionsImg);
     // #endregion
 
-    // #region Game Title and others
+    // #region PPC Title and others
     const exitGame = document.createElement("button");
     const gameTitle = document.createElement("h3");
     const fullScreen = document.createElement("button");
@@ -111,3 +132,15 @@ function createGamesStructure() {
 
   return { gameZone, gameNav };
 }
+
+function loadPpcNPC() {
+  // #region Closes the Menu
+  const screenPpc = document.getElementById("screenPpc");
+  const ppcMenu = document.getElementById("ppcMenu");
+  screenPpc.style.backgroundImage = `none`;
+  screenPpc.style.backgroundColor = "#ff0000aa";
+  ppcMenu.classList.add("hiddenOn");
+  // #endregion
+}
+
+function backToMenuPpc() {}
