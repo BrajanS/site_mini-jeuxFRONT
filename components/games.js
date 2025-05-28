@@ -198,8 +198,9 @@ function launchPpcVsNpc(settings, menuToClose, parent) {
   menuToClose.classList.add("hiddenOn");
   parent.style.backgroundImage = `url("../ressources/images/ppc-bamboo-bg.jpg")`;
   const ppcGame = document.createElement("div");
-  const topBar = document.createElement("div");
   const battleView = document.createElement("div");
+  const topBar = document.createElement("div");
+  const roundText = document.createElement("h4");
   const userSide = document.createElement("div");
   const npcSide = document.createElement("div");
   const userInfo = document.createElement("div");
@@ -234,6 +235,8 @@ function launchPpcVsNpc(settings, menuToClose, parent) {
   ppcGame.id = "ppcGame";
   playerName.textContent = plrName.username;
   npcName.textContent = randomName[randomNumber].name;
+  roundText.id = "roundText";
+  roundText.textContent = "Round: 0";
   userSide.id = "userSide";
   npcSide.id = "npcSide";
   userInfo.id = "userInfo";
@@ -243,7 +246,7 @@ function launchPpcVsNpc(settings, menuToClose, parent) {
 
   parent.appendChild(ppcGame);
   ppcGame.append(topBar, battleView);
-  topBar.append(userSide, npcSide);
+  topBar.append(userSide, roundText, npcSide);
   userSide.appendChild(userInfo);
   npcSide.appendChild(npcInfo);
   userInfo.appendChild(userHearts);
@@ -253,11 +256,16 @@ function launchPpcVsNpc(settings, menuToClose, parent) {
   if (settings.isHpBar === false) {
     // Adds Hearts to each sides
     sides.forEach((side) => {
-      for (let i = 0; i < settings.life; i++) {
-        const hearts = document.createElement("img");
-        hearts.classList.add("hearts");
-        hearts.src = "../ressources/images/heart.png";
-        side.appendChild(hearts);
+      if (settings.life <= 5) {
+        for (let i = 0; i < settings.life; i++) {
+          const hearts = document.createElement("img");
+          hearts.classList.add("hearts");
+          hearts.src = "../ressources/images/heart.png";
+          side.appendChild(hearts);
+        }
+      } else {
+        const heartsAmount = document.createElement("span");
+        heartsAmount.textContent = settings.life;
       }
     });
   } else if (settings.isHpBar === true) {
