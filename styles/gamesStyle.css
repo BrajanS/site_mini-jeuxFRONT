@@ -6,7 +6,6 @@
 #gameMenu {
   padding-top: 20px;
   box-sizing: border-box;
-  border: 2px solid black;
   width: fit-content;
   height: fit-content;
   display: flex;
@@ -193,16 +192,38 @@
   font-size: 36px;
   color: greenyellow;
   font-weight: bold;
+  height: 110px;
 }
 
-/* #userSide {
+#userSide {
   display: flex;
-} */
+  flex-direction: row;
+  gap: 20px;
+}
+
+#userSide > div:last-child > img,
+#npcSide > div:last-child > img {
+  height: 100%;
+}
+
+#userSide > div:last-child,
+#npcSide > div:last-child {
+  border: 3px solid greenyellow;
+  border-radius: 50%;
+  overflow: hidden;
+}
 
 #userInfo {
   display: flex;
   flex-direction: column;
   align-items: start;
+  justify-content: space-between;
+}
+
+#npcSide {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
 }
 
 #npcInfo {

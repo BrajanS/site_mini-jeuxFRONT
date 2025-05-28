@@ -207,6 +207,9 @@ function launchPpcVsNpc(settings, menuToClose, parent) {
 
   const userAvatar = document.createElement("img");
   const npcAvatar = document.createElement("img");
+  const userAvatarContain = document.createElement("div");
+  const npcAvatarContain = document.createElement("div");
+
   const userHearts = document.createElement("div");
   const npcHearts = document.createElement("div");
 
@@ -261,6 +264,8 @@ function launchPpcVsNpc(settings, menuToClose, parent) {
   }
   userInfo.appendChild(playerName);
   npcInfo.appendChild(npcName);
-  userSide.appendChild(userAvatar);
-  npcSide.appendChild(npcAvatar);
+  userSide.appendChild(userAvatarContain);
+  npcSide.appendChild(npcAvatarContain);
+  userAvatarContain.appendChild(userAvatar);
+  npcAvatarContain.appendChild(npcAvatar);
 }
