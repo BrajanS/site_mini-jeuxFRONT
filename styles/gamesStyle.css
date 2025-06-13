@@ -141,6 +141,7 @@
 /* #endregion GameNav */
 /* #endregion Classic Menu's */
 
+/* #region DiffMenu */
 #ppcDifficultyMenu {
   background-color: #3cbb5c7f;
   display: flex;
@@ -175,27 +176,33 @@
   background-color: white;
   cursor: pointer;
 }
+/* #endregion DiffMenu */
 
 #ppcGame {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   padding: 10px;
-  box-sizing: border-box;
 }
 
 #ppcGame > div:first-of-type {
   display: flex;
   justify-content: space-between;
   font-family: "Alumni Sans", sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   color: greenyellow;
   font-weight: bold;
-  height: 110px;
+  height: 120px;
+  width: 100%;
+  position: relative;
 }
 
 #roundText {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 42px;
   height: fit-content;
   white-space: nowrap;
@@ -215,6 +222,7 @@
 #userSide > div:last-child > img,
 #npcSide > div:last-child > img {
   height: 100%;
+  aspect-ratio: 1;
 }
 
 #userSide > div:last-child,
@@ -222,13 +230,13 @@
   border: 3px solid greenyellow;
   border-radius: 50%;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 #userInfo {
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: space-between;
 }
 
 #npcSide {
